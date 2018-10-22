@@ -1,0 +1,33 @@
+@(message: String, form: Form[Login])
+
+@import java.lang.String; var title=message
+
+@if(form.hasGlobalErrors) {
+    <p class="error">
+        @form.globalError.message
+    </p>
+}
+
+@if(flash.contains("success")) {
+    @{title = message.concat(" - ").concat(flash.get("success"))}
+}
+
+@content = {
+    @helper.form(routes.Login.authenticate) {
+        <div id="main">
+            <h1>Sign in</h1>
+
+            <p>
+                <input type="text" name="userLogin" placeholder="Login" value="@form("userLogin").value">
+            </p>
+            <p>
+                <input type="password" name="password" placeholder="Password">
+            </p>
+            <p>
+                <button type="submit">Login</button>
+            </p>
+        </div>
+    }
+}
+
+@main(title, "login", content)

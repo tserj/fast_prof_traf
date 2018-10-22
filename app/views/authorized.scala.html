@@ -1,0 +1,20 @@
+@(title: String, style: String, content: Html,
+        user: model.User)
+
+<!DOCTYPE html>
+<html lang="en">
+
+    @head(title, style)
+
+    <body>
+        @navigation(title, user)
+
+        <div id="main">
+            <article>
+                <div>@content</div>
+            </article>
+        </div>
+
+    </body>
+
+</html>

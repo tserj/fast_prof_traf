@@ -1,0 +1,15 @@
+@(title: String, user: model.User)
+
+<header>
+    <h1 id="logo">@title</h1>
+    @if(user != null) {
+        <dl id="user">
+            <dt>
+                @user.getFullname <span>(@user.getEmail)</span>
+            </dt>
+            <dd>
+                <a href="@routes.Login.logout">Logout</a>
+            </dd>
+        </dl>
+    }
+</header>

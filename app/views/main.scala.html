@@ -1,0 +1,19 @@
+@(title: String, style: String, content: Html)
+
+<!DOCTYPE html>
+<html lang="en">
+
+    @head(title, style)
+
+    <body>
+        @navigation(title, null)
+
+        <div id="main">
+            <article>
+                <div>@content</div>
+            </article>
+        </div>
+
+    </body>
+
+</html>

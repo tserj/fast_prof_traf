@@ -1,0 +1,25 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Back End routes (for client UI requests)
+GET         /test                 controllers.Backend.test()
+GET         /cover                controllers.Application.cover()
+
+
+
+# Admin page
+GET         /                     controllers.Application.index()
+
+# Play framework help page
+GET         /help                 controllers.Application.help()
+
+# Login page for admins
+GET         /login                controllers.Login.login()
+GET         /logout               controllers.Login.logout()
+POST        /login                controllers.Login.authenticate()
+
+# Suplimentarry content (css, js, images)
+GET         /dynamic/*file        controllers.Assets.at(path="/public", file)
+# Map static resources from the /public folder to the /assets URL path
+GET         /assets/*file         controllers.Assets.versioned(path="/public", file: Asset)
